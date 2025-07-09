@@ -1,17 +1,11 @@
-import { withMiddlewareAuthRequired } from '@auth0/nextjs-auth0/edge';
+// Auth0 v4 middleware is handled at the component level
+// using ProtectedRoute component instead of middleware
 
-export default withMiddlewareAuthRequired();
+export function middleware() {
+  // Middleware is not needed for Auth0 v4
+  // Authentication is handled by ProtectedRoute components
+}
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api/auth (Auth0 API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - public folder
-     */
-    '/((?!api/auth|_next/static|_next/image|favicon.ico|public).*)',
-  ],
+  matcher: [],
 }; 
